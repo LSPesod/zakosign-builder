@@ -41,7 +41,7 @@ jobs:
       - name: Upload
         if: success()
         env:
-            REPO: ${{ github.action_repository }}
+            REPO: ${{ github.repository }}
         run: |
           cd zakosign/bin
           git init
@@ -51,4 +51,4 @@ jobs:
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$REPO.git
           git add .
           git commit -a -m "build ok"
-          git push origin build
+          git push -u origin build
