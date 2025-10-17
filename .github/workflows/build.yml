@@ -47,7 +47,7 @@ jobs:
           cd zakosign/bin
           git init
           git branch -M build
-          git remote add origin https://github.com/$REPO.git -b build
+          git remote add origin https://github.com/$REPO.git
           git add .
           git commit -a -m "build ok"
           git push origin build
