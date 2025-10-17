@@ -51,4 +51,4 @@ jobs:
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$REPO.git
           git add .
           git commit -a -m "build ok"
-          git push -u origin build
+          git push -u origin build --force
