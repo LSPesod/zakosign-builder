@@ -36,7 +36,7 @@ jobs:
         with:
             name: zakosign
             path: |
-              bin/*
+              zakosign/bin/*
 
       - name: Upload
         if: success()
@@ -44,7 +44,7 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             REPO: ${{ github.action_repository }}
         run: |
-          cd bin
+          cd zakosign/bin
           git init
           git branch -M build
           git remote add origin https://github.com/$REPO.git -b build
