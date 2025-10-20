@@ -32,6 +32,7 @@ jobs:
           cd zakosign
           sed -i 's/#define ZAKO_TARGET_LINUX 1/#define ZAKO_TARGET_LINUX 1\n#define ZAKO_TARGET_POSIX 1/' src/prelude.h
           sed -i 's/-Werror//g' Makefile
+          sed -i 's/-Wfuse-ld=ld/-fuse-ld=ld/' Makefile
           git submodule update --init --depth=1
           cd boringssl
           cmake -GNinja -DCMAKE_BUILD_TYPE=Release .
