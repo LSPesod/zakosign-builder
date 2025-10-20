@@ -30,7 +30,7 @@ jobs:
         run: |
           git clone https://github.com/Lama3L9R/zakosign.git --depth=1
           cd zakosign
-          echo '#include <openssl/x509v3.h>' | cat - src/cli.c > temp && mv temp src/cli.c
+          git submodule update --init
           make -j$(nproc --all)
 
       - name: Upload
