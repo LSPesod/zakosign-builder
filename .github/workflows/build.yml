@@ -32,8 +32,9 @@ jobs:
           cd zakosign
           git submodule update --init
           cd boringssl
-          make -j$(nproc --all)
-          sudo make install
+          cmake -GNinja -DCMAKE_BUILD_TYPE=Release .
+          ninja -j$(nproc --all)
+          sudo ninja install
           cd ..
           make -j$(nproc --all)
 
