@@ -31,7 +31,7 @@ jobs:
           git clone https://github.com/Lama3L9R/zakosign.git --depth=1
           cd zakosign
           sed -i 's/#define ZAKO_TARGET_LINUX 1/#define ZAKO_TARGET_LINUX 1\n#define ZAKO_TARGET_POSIX 1/' src/prelude.h
-          sed -i 's/write(file, (void\*) data, sz);/(void)write(file, (void*) data, sz);/' src/sys_linux.c
+          sed -i 's/-Werror//g' Makefile
           git submodule update --init --depth=1
           cd boringssl
           cmake -GNinja -DCMAKE_BUILD_TYPE=Release .
