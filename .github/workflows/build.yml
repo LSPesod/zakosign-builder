@@ -30,7 +30,7 @@ jobs:
         run: |
           git clone https://github.com/Lama3L9R/zakosign.git --depth=1
           cd zakosign
-          git submodule update --init
+          git submodule update --init --depth=1
           cd boringssl
           cmake -GNinja -DCMAKE_BUILD_TYPE=Release .
           ninja -j$(nproc --all)
