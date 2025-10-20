@@ -31,6 +31,10 @@ jobs:
           git clone https://github.com/Lama3L9R/zakosign.git --depth=1
           cd zakosign
           git submodule update --init
+          cd boringssl
+          make -j$(nproc --all)
+          sudo make install
+          cd ..
           make -j$(nproc --all)
 
       - name: Upload
