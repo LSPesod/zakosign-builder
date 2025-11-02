@@ -26,6 +26,11 @@ jobs:
     env:
       GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     steps:
+      - name: Upgrade
+        run: |
+          apt update
+          apt upgrade -y
+
       - name: Build zakosign
         run: |
           git clone https://github.com/Lama3L9R/zakosign.git --depth=1
@@ -39,14 +44,12 @@ jobs:
           make -j$(nproc --all)
 
       - name: Upload
+        if: success()
         uses: actions/upload-artifact@v4
         with:
             name: zakosign
             path: |
               zakosign/bin/*
-
-      - name: Upload
-        if: success()
         env:
             REPO: ${{ github.repository }}
         run: |
