@@ -43,13 +43,15 @@ jobs:
           cd ..
           make -j$(nproc --all)
 
-      - name: Upload
+      - name: Upload Atrifact
         if: success()
         uses: actions/upload-artifact@v4
         with:
             name: zakosign
             path: |
               zakosign/bin/*
+
+      - name: Upload to build branch
         env:
             REPO: ${{ github.repository }}
         run: |
