@@ -48,7 +48,7 @@ jobs:
       - name: Build zakosign
         run: |
           cd zakosign
-          make -j$(nproc --all)
+          make
 
       - name: Upload Atrifact
         if: success()
