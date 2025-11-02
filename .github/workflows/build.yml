@@ -34,9 +34,9 @@ jobs:
 
       - name: Clone zakosign
         run: |
-          git clone https://github.com/Lama3L9R/zakosign.git --depth=1
+          git clone https://github.com/Lama3L9R/zakosign.git
           cd zakosign
-          git submodule update --init --depth=1
+          git submodule update --init
 
       - name: Install boringssl
         run: |
