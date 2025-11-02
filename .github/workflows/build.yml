@@ -39,14 +39,14 @@ jobs:
 
       - name: Install boringssl
         run: |
-          cd boringssl
+          cd zakosign/boringssl
           cmake -GNinja -DCMAKE_BUILD_TYPE=Release .
           ninja -j$(nproc --all)
           sudo ninja install
 
       - name: Build zakosign
         run: |
-          cd ..
+          cd zakosign
           make -j$(nproc --all)
 
       - name: Upload Atrifact
