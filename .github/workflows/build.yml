@@ -28,6 +28,7 @@ jobs:
     steps:
       - name: Upgrade
         run: |
+          sudo apt-mark hold firefox &&
           sudo apt update
           sudo apt upgrade -y
 
