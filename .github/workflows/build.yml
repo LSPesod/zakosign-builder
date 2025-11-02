@@ -28,18 +28,24 @@ jobs:
     steps:
       - name: Upgrade
         run: |
-          apt update
-          apt upgrade -y
+          sudo apt update
+          sudo apt upgrade -y
 
-      - name: Build zakosign
+      - name: Clone zakosign
         run: |
           git clone https://github.com/Lama3L9R/zakosign.git --depth=1
           cd zakosign
           git submodule update --init --depth=1
+
+      - name: Install boringssl
+        run: |
           cd boringssl
           cmake -GNinja -DCMAKE_BUILD_TYPE=Release .
           ninja -j$(nproc --all)
           sudo ninja install
+
+      - name: Build zakosign
+        run: |
           cd ..
           make -j$(nproc --all)
 
